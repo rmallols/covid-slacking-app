@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Progress from './Progress/Progress';
-import Actions from './Actions/Actions';
+import Messages from './Messages/Messages';
 import noelia from './noelia.png';
 import luna from './luna.png';
 import ricardo from './ricardo.jpg';
@@ -15,27 +15,28 @@ function App() {
         { id: 'ricardo', name: 'Ricardo', score: 0, picture: ricardo },
     ]);
 
-    const announceUpdate = ({ name, score }) => {
-        const message = new SpeechSynthesisUtterance(
-            `${name}, ${score} point${score > 1 ? 's' : ''}`
-        );
-        window.speechSynthesis.speak(message);
+    const announceUpdate = (text, language = 'en-GB') => {
+        const message = new SpeechSynthesisUtterance();
+        message.lang = language;
+        message.text = text;
+        speechSynthesis.speak(message);
     };
 
     const updateScore = index => {
         let newPlayers = [...players];
         newPlayers[index].score++;
         setPlayers(newPlayers);
-        announceUpdate(newPlayers[index]);
+        let { name, score } = newPlayers[index];
+        announceUpdate(`${name}, ${score} point${score > 1 ? 's' : ''}`);
     };
 
     return (
         <div className="App">
-            <Progress players={players} victoryScore={victoryScore} />
-            <Actions
+            <Progress
                 players={players}
                 victoryScore={victoryScore}
                 onScore={updateScore} />
+            <Messages onUpdate={announceUpdate} />
         </div>
     );
 }

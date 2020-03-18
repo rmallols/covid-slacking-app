@@ -5,26 +5,33 @@
 }
 
 .Progress .player {
-    display: grid;
-    grid-template-rows: 2fr 3fr;
-    align-items: center;
+    display: flex;
+    height: 100px;
+    position: relative;
 }
 
 .Progress .player .details {
     display: flex;
+    flex: 0;
+    align-items: stretch;
+}
+
+.Progress .player .details > * {
+    display: flex;
     align-items: center;
+    justify-content: center;
+    font-size: 35px;
 }
 
 .Progress .player .details .score {
     background-color: #00aaef;
     width: 20px;
-    padding: 5.5px 10px;
-    text-align: center;
+    padding: 0 15px;
     color: white;
 }
 
 .Progress .player .details img {
-    height: 30px;
+    height: 100%;
 }
 
 .Progress .player .details .name {
@@ -34,6 +41,9 @@
 .Progress .player .bar {
     transition: width ease 0.3s;
     height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: .3;
 }
 
 .Progress .player .bar.index-0 {

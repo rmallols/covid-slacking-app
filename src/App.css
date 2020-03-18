@@ -2,5 +2,5 @@
     height: 100%;
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-gap: 30px;
+    grid-gap: 15px;
 }
