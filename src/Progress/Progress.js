@@ -1,7 +1,7 @@
 import React from 'react';
 import './Progress.css';
 
-export default function Progress({ players, victoryScore, onScore }) {
+export default function Progress({ players, victoryScore, onScore, gameOver }) {
 
     const getBarWidth = score => (
         `${Math.round(score / victoryScore * 100)}%`
@@ -12,7 +12,7 @@ export default function Progress({ players, victoryScore, onScore }) {
             players.map(({ id, name, score, picture }, index) => (
                 <div
                     className="player" key={id}
-                    onClick={() => onScore(index)}
+                    onClick={() => !gameOver && onScore(index)}
                 >
                     <div className="details">
                         <div className="score">{score}</div>
