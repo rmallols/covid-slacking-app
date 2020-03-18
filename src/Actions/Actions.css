@@ -1,0 +1,11 @@
+.Actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+}
+
+.Actions button {
+    cursor: pointer;
+    background-color: yellow;
+    border: none;
+}

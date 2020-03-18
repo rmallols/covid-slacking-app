@@ -1,0 +1,49 @@
+.Progress {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5px;
+}
+
+.Progress .player {
+    display: grid;
+    grid-template-rows: 2fr 3fr;
+    align-items: center;
+}
+
+.Progress .player .details {
+    display: flex;
+    align-items: center;
+}
+
+.Progress .player .details .score {
+    background-color: #00aaef;
+    width: 20px;
+    padding: 5.5px 10px;
+    text-align: center;
+    color: white;
+}
+
+.Progress .player .details img {
+    height: 30px;
+}
+
+.Progress .player .details .name {
+    padding-left: 10px;
+}
+
+.Progress .player .bar {
+    transition: width ease 0.3s;
+    height: 100%;
+}
+
+.Progress .player .bar.index-0 {
+    background-color: blue;
+}
+
+.Progress .player .bar.index-1 {
+    background-color: red;
+}
+
+.Progress .player .bar.index-2 {
+    background-color: green;
+}
